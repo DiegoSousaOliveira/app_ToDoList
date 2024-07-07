@@ -3,10 +3,10 @@ import flet as ft
 class Task(ft.Row):
     def __init__(self, text, task_delete):
         super().__init__()
-        self.text_view = ft.Text(text)
-        self.text_edit = ft.TextField(text, visible=False)
+        self.text_view = ft.Text(text, expand=True)
+        self.text_edit = ft.TextField(text, visible=False, expand=True)
         self.task_delete = task_delete
-        self.edit_button = ft.IconButton(icon=ft.icons.EDIT, on_click=self.edit,)
+        self.edit_button = ft.IconButton(icon=ft.icons.EDIT, on_click=self.edit)
         self.save_button = ft.IconButton(visible=False, icon=ft.icons.SAVE, on_click=self.save)
         self.delete_button = ft.IconButton(icon=ft.icons.DELETE, on_click=self.delete)
         self.container_icon = self.group_icons()
@@ -114,11 +114,7 @@ class ToDoApp(ft.Column):
 
     def add_task(self, e):
         task = Task(e.data, self.task_delete)
-        print(type(e.data))
-        print(e.data)
-        print('-', self.check_task(e.data))
         if self.check_task(e.data):
-            print('Cheguei aqui!')
             self.tasks.controls.pop()
             self.tasks.controls.append(task)
             
@@ -137,7 +133,6 @@ class ToDoApp(ft.Column):
         return True
 
     def check_width(self):
-        print(self.page.width)
         if self.page.width > 600:
             self.container_task.width = 500
         else:
