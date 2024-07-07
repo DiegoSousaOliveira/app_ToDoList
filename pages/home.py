@@ -56,8 +56,8 @@ class ToDoApp(ft.Column):
         super().__init__()
         self.page = page
         self.header = self.create_header()
-        self.tasks = ft.Column(scroll=ft.ScrollMode.AUTO, expand=True) # TODO expand add
-        self.container_task = ft.Container(height=300) # TODO width=500
+        self.tasks = ft.Column(scroll=ft.ScrollMode.AUTO, expand=True)
+        self.container_task = ft.Container(height=300)
         self.list_task = self.create_list_task()
         self.icon_button = self.create_icon_button()
         self.alignment = ft.MainAxisAlignment.SPACE_AROUND
@@ -85,7 +85,7 @@ class ToDoApp(ft.Column):
     def create_header(self):
         header = ft.Row(
                 controls=[
-                    ft.Text('APP Mobile', size=32),
+                    ft.Text('To Do List', size=32),
                     ft.CircleAvatar(ft.Text('Dg'))
                 ],
                 alignment=ft.MainAxisAlignment.SPACE_EVENLY)
